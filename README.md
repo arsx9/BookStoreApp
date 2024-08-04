@@ -1,6 +1,8 @@
-# MyAngularProject
+# Book List CRUD App Backend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.
+This project was generated through slim PHP with version V4.
+1- composer require slim/slim:"4.\*"
+2- composer require slim/psr7
 
 ## Development server
 
