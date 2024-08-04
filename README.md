@@ -1,8 +1,12 @@
 # Book List CRUD App Backend
 
 This project was generated through slim PHP with version V4.
-1- composer require slim/slim:"4.\*"
-2- composer require slim/psr7
+
+## Features
+
+- Feature 1
+- Feature 2
+- Feature 3
 
 ## Development server
 
