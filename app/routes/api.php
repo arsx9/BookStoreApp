@@ -3,8 +3,12 @@
 use psr\Http\Message\ServerRequestInterface as Request;
 use psr\Http\Message\ResponseInterface as Response;
 
+require_once __DIR__ . '/../src/config.php';
+require_once __DIR__ . '/../src/db.php';
 require_once __DIR__ . '/../middlewares/jsonBodyParser.php';
-
+$config = new Config();
+$db = new DB($config);
+$queryBuilder = $db->getQueryBuilder();
 /** 
  * Home
  * 
@@ -21,9 +25,8 @@ $app->get('/', function (Request $request, Response $response) {
  * Get All Books 
  * 
  */
-$app->get('/api/books/', function (Request $request, Response $response) {
+$app->get('/api/books', function (Request $request, Response $response) use ($queryBuilder) {
     try {
-        $queryBuilder = $this->get('DB')->getQueryBuilder();
         $queryBuilder->select('id', 'name', 'author_name', 'book_info')->from('books');
         $result = $queryBuilder->executeQuery()->fetchAllAssociative();
 
@@ -46,9 +49,8 @@ $app->get('/api/books/', function (Request $request, Response $response) {
  * Get single Books 
  * 
  */
-$app->get('/api/book/{id}', function (Request $request, Response $response, array $args) {
+$app->get('/api/book/{id}', function (Request $request, Response $response, array $args) use ($queryBuilder) {
     try {
-        $queryBuilder = $this->get('DB')->getQueryBuilder();
         $queryBuilder->select('id', 'name', 'author_name', 'book_info')
             ->from('books')
             ->where('id = ?')
@@ -74,7 +76,7 @@ $app->get('/api/book/{id}', function (Request $request, Response $response, arra
  * Add a new Book 
  * 
  */
-$app->post('/api/book/add', function (Request $request, Response $response) {
+$app->post('/api/book/add', function (Request $request, Response $response) use ($queryBuilder) {
     $parsedBody = $request->getParsedBody();
     // Validate the input data
     if (!isset($parsedBody['name']) || !isset($parsedBody['author_name']) || !isset($parsedBody['book_info'])) {
@@ -88,7 +90,6 @@ $app->post('/api/book/add', function (Request $request, Response $response) {
     $bookInfo = $parsedBody['book_info'];
 
     try {
-        $queryBuilder = $this->get('DB')->getQueryBuilder();
 
         // Check if a book with the same name already exists
         $queryBuilder->select('COUNT(*)')
@@ -131,7 +132,7 @@ $app->post('/api/book/add', function (Request $request, Response $response) {
  * Update Book Data 
  * 
  */
-$app->put('/api/book/{id}', function (Request $request, Response $response, array $args) {
+$app->put('/api/book/{id}', function (Request $request, Response $response, array $args) use ($queryBuilder) {
     $parsedBody = $request->getParsedBody();
     $bookId = $args['id'];
 
@@ -146,7 +147,6 @@ $app->put('/api/book/{id}', function (Request $request, Response $response, arra
     $bookInfo = $parsedBody['book_info'];
 
     try {
-        $queryBuilder = $this->get('DB')->getQueryBuilder();
 
         // Check if the book exists
         $queryBuilder->select('COUNT(*)')
@@ -204,10 +204,8 @@ $app->put('/api/book/{id}', function (Request $request, Response $response, arra
  * Delete a Book 
  * 
  */
-$app->delete('/api/book/{id}', function (Request $request, Response $response, array $args) {
+$app->delete('/api/book/{id}', function (Request $request, Response $response, array $args) use ($queryBuilder) {
     try {
-        $queryBuilder = $this->get('DB')->getQueryBuilder();
-
         // Check if the book exists
         $queryBuilder->select('COUNT(*)')
             ->from('books')

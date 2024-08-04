@@ -8,6 +8,11 @@ This project was generated through slim PHP with version V4.
 - Make a Virtual Host with any name e.g. "bookapp.local" and path is [YourFolderPath]/app/public
 - After adding Virtual Host Restart DNS.
 
+## Setting up Database
+
+- Download the Database file and import in your localhost Database
+- Congigure the database in [YourFolderPath]/app/src/config.php
+
 ## Endpointd
 
 - http://[Virtual_Host_Name]/api/books/ (for Retriving all the books)
