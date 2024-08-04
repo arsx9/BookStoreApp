@@ -18,36 +18,36 @@ This project was generated through slim PHP with version V4.
 
 ## Possible Outputs for All books End Point
 
-on Success: Array of JS objects with book Data
-on Failed: massage "No Books Available"
-Codes: 200, 400, 404, 500
+- on Success: Array of JS objects with book Data
+- on Failed: massage "No Books Available"
+- Codes: 200, 400, 404, 500
 
 ## Possible Outputs for Single books End Point
 
-on Success: JS objects with book Data
-on Failed: massage "No Book Found"
-Codes: 200, 400, 404, 500
+- on Success: JS objects with book Data
+- on Failed: massage "No Book Found"
+- Codes: 200, 400, 404, 500
 
 ## Possible Outputs for Adding a new book End Point
 
-on Success: massage "Book added successfully"
-on Failed: error "Invalid input data"
-on Failed: error "A book with the same name already exists"
-on Failed: error "Failed to add book"
-Codes: 200, 400, 404, 500
+- on Success: massage "Book added successfully"
+- on Failed: error "Invalid input data"
+- on Failed: error "A book with the same name already exists"
+- on Failed: error "Failed to add book"
+- Codes: 200, 400, 404, 500
 
 ## Possible Outputs for Updating a book End Point
 
-on Success: massage "Book updated successfully"
-on Failed: error "Invalid input data"
-on Failed: error "Book not found"
-on Failed: error "A book with the same name already exists"
-on Failed: error "Failed to update book"
-Codes: 200, 400, 404, 500
+- on Success: massage "Book updated successfully"
+- on Failed: error "Invalid input data"
+- on Failed: error "Book not found"
+- on Failed: error "A book with the same name already exists"
+- on Failed: error "Failed to update book"
+- Codes: 200, 400, 404, 500
 
 ## Possible Outputs for Deleting a book End Point
 
-on Success: massage "Book deleted successfully"
-on Failed: error "Book not found"
-on Failed: error "Failed to delete book"
-Codes: 200, 400, 404, 500
+- on Success: massage "Book deleted successfully"
+- on Failed: error "Book not found"
+- on Failed: error "Failed to delete book"
+- Codes: 200, 400, 404, 500
