@@ -51,3 +51,7 @@ This project was generated through slim PHP with version V4.
 - on Failed: error "Book not found"
 - on Failed: error "Failed to delete book"
 - Codes: 200, 400, 404, 500
+
+## Testing the Endpoints
+
+- each end point can be easily tested with the help of post man
