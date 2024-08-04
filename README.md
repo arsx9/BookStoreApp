@@ -2,32 +2,52 @@
 
 This project was generated through slim PHP with version V4.
 
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Intall WAMP Server (https://www.youtube.com/watch?v=M2at7D-lciw&ab_channel=GeekyScript)
+- Make a Virtual Host with any name e.g. "bookapp.local" and path is [YourFolderPath]/app/public
+- After adding Virtual Host Restart DNS.
 
-## Code scaffolding
+## Endpointd
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- http://[Virtual_Host_Name]/api/books/ (for Retriving all the books)
+- http://[Virtual_Host_Name]/api/books/ (for Retriving the single Book)
+- http://[Virtual_Host_Name]/api/book/add (for Adding a new Book)
+- http://[Virtual_Host_Name]/api/book/{id} (for Updating a Book With PUT Request)
+- http://[Virtual_Host_Name]/api/book/{id} (for Deleting a Book With DELETE Request)
 
-## Build
+## Possible Outputs for All books End Point
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+on Success: Array of JS objects with book Data
+on Failed: massage "No Books Available"
+Codes: 200, 400, 404, 500
 
-## Running unit tests
+## Possible Outputs for Single books End Point
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+on Success: JS objects with book Data
+on Failed: massage "No Book Found"
+Codes: 200, 400, 404, 500
 
-## Running end-to-end tests
+## Possible Outputs for Adding a new book End Point
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+on Success: massage "Book added successfully"
+on Failed: error "Invalid input data"
+on Failed: error "A book with the same name already exists"
+on Failed: error "Failed to add book"
+Codes: 200, 400, 404, 500
 
-## Further help
+## Possible Outputs for Updating a book End Point
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+on Success: massage "Book updated successfully"
+on Failed: error "Invalid input data"
+on Failed: error "Book not found"
+on Failed: error "A book with the same name already exists"
+on Failed: error "Failed to update book"
+Codes: 200, 400, 404, 500
+
+## Possible Outputs for Deleting a book End Point
+
+on Success: massage "Book deleted successfully"
+on Failed: error "Book not found"
+on Failed: error "Failed to delete book"
+Codes: 200, 400, 404, 500
