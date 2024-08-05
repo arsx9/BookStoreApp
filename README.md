@@ -15,8 +15,8 @@ This project was generated through slim PHP with version V4.
 
 ## Endpointd
 
-- http://[Virtual_Host_Name]/api/books/ (for Retriving all the books)
-- http://[Virtual_Host_Name]/api/books/ (for Retriving the single Book)
+- http://[Virtual_Host_Name]/api/books (for Retriving all the books)
+- http://[Virtual_Host_Name]/api/book/{id} (for Retriving the single Book)
 - http://[Virtual_Host_Name]/api/book/add (for Adding a new Book)
 - http://[Virtual_Host_Name]/api/book/{id} (for Updating a Book With PUT Request)
 - http://[Virtual_Host_Name]/api/book/{id} (for Deleting a Book With DELETE Request)

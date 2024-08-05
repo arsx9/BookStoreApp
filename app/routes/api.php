@@ -6,6 +6,7 @@ use psr\Http\Message\ResponseInterface as Response;
 require_once __DIR__ . '/../src/config.php';
 require_once __DIR__ . '/../src/db.php';
 require_once __DIR__ . '/../middlewares/jsonBodyParser.php';
+
 $config = new Config();
 $db = new DB($config);
 $queryBuilder = $db->getQueryBuilder();
